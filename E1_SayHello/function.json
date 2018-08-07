@@ -4,6 +4,16 @@
       "name": "name",
       "type": "activityTrigger",
       "direction": "in"
+    },
+    {
+      "type": "cosmosDB",
+      "name": "app",
+      "databaseName": "voiply",
+      "collectionName": "online",
+      "id": "b6b38369-70b4-43e6-88eb-7f7c2eb37681",
+      "connectionStringSetting": "voiplyonline_DOCUMENTDB",
+      "direction": "in",
+      "partitionKey": "b6b38369-70b4-43e6-88eb-7f7c2eb37681"
     }
   ],
   "disabled": false

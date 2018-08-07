@@ -3,6 +3,7 @@
     "version": "0.0.1",
     "dependencies": {
         "azure-storage": "^2.8.2",
+        "documentdb": "^1.14.5",
         "durable-functions": "0.0.3",
         "eslint": "^5.2.0",
         "moment": "^2.22.1",

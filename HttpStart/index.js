@@ -10,6 +10,15 @@ module.exports = function (context, req) {
     }];
 
     context.bindings.starter = startArgs;
-
-    context.done(null, {status: 202, body: id});
+    var locationUrl = "https://" + process.env.HOST + "/runtime/webhooks/DurableTaskExtension/instances/" + id + "?taskHub=" + process.env.HUB_NAME + "&connection=AZURE_STORAGE_CONNECTION_STRING&code=" + process.env.SYSTEM_KEY;
+    context.done(null, {
+        status: 202,
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: {
+            id: id,
+            statusQueryGetUri: locationUrl
+        }
+    });
 };
