@@ -7,11 +7,13 @@
         "durable-functions": "0.0.3",
         "eslint": "^5.2.0",
         "moment": "^2.22.1",
+        "node-fetch": "^2.2.0",
         "npm": "^6.2.0",
         "nvm": "0.0.4",
         "nvm-win": "^0.2.4",
         "readdirp": "^2.1.0",
         "seedrandom": "^2.4.3",
+        "tsv": "^0.2.0",
         "uuid": "^3.2.1"
     }
 }
