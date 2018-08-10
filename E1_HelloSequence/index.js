@@ -11,6 +11,7 @@ module.exports = df(function* (context) {
         const output = [];
         for (var count = 0; count < results.length; count++) {
             output.push(yield context.df.callActivityAsync("E1_SayHello", results[count].url));
+            break;
         }
 
         output.forEach(element => {
