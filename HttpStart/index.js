@@ -3,9 +3,20 @@ const uuidv1 = require("uuid/v1");
 module.exports = function (context, req) {
     const id = uuidv1();
 
+    let keyword;
+    if(req.query.keyword){
+        keyword = req.query.keyword;
+    } else {
+        context.done(null, {
+            status: 400,
+            body: "No keyword provided"
+        });
+        return;
+    }
+
     let startArgs = [{
         FunctionName: req.params.functionName,
-        Input: req.body,
+        Input: keyword,
         InstanceId: id
     }];
 
