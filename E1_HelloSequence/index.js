@@ -5,23 +5,19 @@ module.exports = df(function* (context) {
     var combinedResult = {};
 
     var results = yield context.df.callActivityAsync("DoCognitiveSearch", "Acupuncturist"); //Get the url's
-
+    const output = [];
     if (results && Array.isArray(results) && results.length > 0) {
 
         const output = [];
         for (var count = 0; count < results.length; count++) {
             output.push(yield context.df.callActivityAsync("E1_SayHello", results[count].url));
-            break;
         }
-
+        var count = 0;
         output.forEach(element => {
-            if (Array.isArray(element) && element.length > 0) {
-                element.forEach(item => {
-                    if (item.question && item.answer && !combinedResult[item.question]) {
-                        combinedResult[item.question] = item.answer;
-                    }
-                });
+            if (Array.isArray(element) && element.length > 0 && results[count]) {
+                combinedResult[results[count].url] = element;
             }
+            count++;
         });
     } else {
         combinedResult = results;
